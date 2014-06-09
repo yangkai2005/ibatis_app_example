@@ -1,0 +1,1 @@
+mvn archetype:generate -DgroupId=net.jee.ibatis -DartifactId=ibatis_app_example -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
