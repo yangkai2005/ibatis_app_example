@@ -8,6 +8,7 @@
 
   <typeAlias alias="student" type="org.facejava.vo.Student"/>
   <typeAlias alias="clazz" type="org.facejava.vo.Clazz"/>
+  
 
   <!-- 
        表关联通过配置文件的resultMap实现,不需要关联的查询仍可用resultClass
