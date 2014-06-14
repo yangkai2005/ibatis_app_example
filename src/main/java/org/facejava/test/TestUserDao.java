@@ -1,7 +1,5 @@
 package org.facejava.test;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.facejava.dao.UserDao;
@@ -28,9 +26,9 @@ public class TestUserDao {
 	@Test
 	public void testAddUser() {
 		try {
-			User user = new User("ÕÅÑ§ÓÑ","ÄÐ");
+			User user = new User("å¼ å­¦å‹","ç”·");
 			dao.addUser(user);
-			System.out.println("Ìí¼ÓÓÃ»§Íê³É >>>>>>>>> ");
+			System.out.println("æ·»åŠ ç”¨æˆ·å®Œæˆ >>>>>>>>> ");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
