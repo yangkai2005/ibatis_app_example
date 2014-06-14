@@ -2,33 +2,38 @@ package org.facejava.factory;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.nio.charset.Charset;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 public class IbatisSqlMapperFactory {
-	//SqlMapClientÊÇibatisÔË×÷µÄºËĞÄ£¬ËùÓĞ²Ù×÷¾ùÍ¨¹ıSqlMapClientÊµÀıÍê³É¡£
+	// SqlMapClientæ˜¯ibatisè¿ä½œçš„æ ¸å¿ƒï¼Œæ‰€æœ‰æ“ä½œå‡é€šè¿‡SqlMapClientå®ä¾‹å®Œæˆã€‚
 	private static SqlMapClient sqlMapper;
-	
+
 	static {
-	    try {
-	      Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml");
-	      sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
-	      reader.close(); 
-	    } catch (IOException e) {
-	      // Fail fast.
-	      throw new RuntimeException("Something bad happened while building the SqlMapClient instance." + e, e);
-	    }
-	  }
-	
-	 public static SqlMapClient getSqlMapClient(){
-		 try {
+		try {
+			Resources.setCharset(Charset.forName("utf-8"));
+			Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml");
+			sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
+			reader.close();
+		} catch (IOException e) {
+			// Fail fast.
+			throw new RuntimeException(
+					"Something bad happened while building the SqlMapClient instance."
+							+ e, e);
+		}
+	}
+
+	public static SqlMapClient getSqlMapClient() {
+		try {
 			return sqlMapper;
 		} catch (Exception e) {
-			System.out.println("%%%%%%%%%%%%%%get SqlMapClient error%%%%%%%%%%%%%%%%%");
+			System.out
+					.println("%%%%%%%%%%%%%%get SqlMapClient error%%%%%%%%%%%%%%%%%");
 			return null;
 		}
-	 }
+	}
 
 }
